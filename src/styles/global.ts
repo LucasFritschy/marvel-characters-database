@@ -3,13 +3,13 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   :root {
     --background: #E5E5E5;
-
-    --white: #FFFFFF
+    --background-header: #FFFFFF;
     
     --text-title: #555555;
     --text-body: #555555;
     --text-search: #8E8E8E;
   }
+
   * {
     margin: 0;
     padding: 0;

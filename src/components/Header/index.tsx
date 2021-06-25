@@ -1,7 +1,13 @@
+import * as S from './styles'
+
 export function Header() {
   return (
-    <header>
-      <h1>Hello Word</h1>
-    </header>
+    <S.Container>
+      <h1>Objective</h1>
+      <S.User>
+        <p><strong>Lucas Fritschy</strong> Teste de Front-end</p>
+        <div>LF</div>
+      </S.User>
+    </S.Container>
   )
 }
