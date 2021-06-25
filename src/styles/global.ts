@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     --text-title: #555555;
     --text-body: #555555;
     --text-search: #8E8E8E;
+
+    --white: #FFFFFF;
+    --smoke: #8E8E8E
+    --dark-smoke: #555555
+
   }
 
   * {
