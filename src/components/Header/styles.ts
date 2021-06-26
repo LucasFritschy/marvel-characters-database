@@ -13,6 +13,7 @@ export const User = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'PT Sans Caption', sans-serif;
 
   p {
     font-size: 0.875rem;

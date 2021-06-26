@@ -4,11 +4,9 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --background: #E5E5E5;
     --background-header: #FFFFFF;
-    
     --text-title: #555555;
     --text-body: #555555;
     --text-search: #8E8E8E;
-
     --white: #FFFFFF;
     --smoke: #8E8E8E
     --dark-smoke: #555555
@@ -36,11 +34,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: 'PT Sans Caption', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
+    color: var(--text-body);
   }
 
   h1, h2, h3, h4, h5, h6, strong {
+    font-family: 'PT Sans Caption', sans-serif;
     font-weight: 600;
   }
 
