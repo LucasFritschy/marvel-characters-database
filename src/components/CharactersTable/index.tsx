@@ -1,103 +1,46 @@
 import * as S from './styles'
-import photo from '../../assets/photo.png'
+import { CharacterListFormatted } from '../../utils/heroListFormatter'
 
-export function CharactersTable() {
+interface CharactersTableProps {
+  list: CharacterListFormatted[]
+}
+
+export function CharactersTable({ list }: CharactersTableProps) {
   return (
     <S.Table>
-      <tr>
-        <th>Personagem</th>
-        <th>Séries</th>
-        <th>Eventos</th>
-      </tr>
-      <tr>
-        <td>
-          <S.CharBox>
-            <img src={photo} alt="abner" />
-            <span><strong>Abner Jenkins</strong></span>
-          </S.CharBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>Iron Man: Armor Wars</span>
-            <span>Old Man Hawkeye</span>
-            <span>Fantastic Four Visionaries: Walter Simonson Vol. 1</span>
-          </S.TextBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>AvX</span>
-            <span>Demon in the Bottle</span>
-            <span>Dynasty M</span>
-          </S.TextBox>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <S.CharBox>
-            <img src={photo} alt="abner" />
-            <span><strong>Abner Jenkins</strong></span>
-          </S.CharBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>Iron Man: Armor Wars</span>
-            <span>Old Man Hawkeye</span>
-            <span>Fantastic Four Visionaries: Walter Simonson Vol. 1</span>
-          </S.TextBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>AvX</span>
-            <span>Demon in the Bottle</span>
-            <span>Dynasty M</span>
-          </S.TextBox>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <S.CharBox>
-            <img src={photo} alt="abner" />
-            <span><strong>Abner Jenkins</strong></span>
-          </S.CharBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>Iron Man: Armor Wars</span>
-            <span>Old Man Hawkeye</span>
-            <span>Fantastic Four Visionaries: Walter Simonson Vol. 1</span>
-          </S.TextBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>AvX</span>
-            <span>Demon in the Bottle</span>
-            <span>Dynasty M</span>
-          </S.TextBox>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <S.CharBox>
-            <img src={photo} alt="abner" />
-            <span><strong>Abner Jenkins</strong></span>
-          </S.CharBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>Iron Man: Armor Wars</span>
-            <span>Old Man Hawkeye</span>
-            <span>Fantastic Four Visionaries: Walter Simonson Vol. 1</span>
-          </S.TextBox>
-        </td>
-        <td>
-          <S.TextBox>
-            <span>AvX</span>
-            <span>Demon in the Bottle</span>
-            <span>Dynasty M</span>
-          </S.TextBox>
-        </td>
-      </tr>
-
+      <thead>
+        <tr>
+          <th>Personagem</th>
+          <th>Séries</th>
+          <th>Eventos</th>
+        </tr>
+      </thead>
+      <tbody>
+        {list.map(({ id, name, series, events, thumbnail }) => (
+          <tr key={id}>
+            <td>
+              <S.CharBox>
+                <img src={thumbnail} alt={name} />
+                <span><strong>{name}</strong></span>
+              </S.CharBox>
+            </td>
+            <td>
+              <S.TextBox>
+                {series.slice(0, 3).map((serie) => {
+                  return <span key={serie}>{serie}</span>
+                })}
+              </S.TextBox>
+            </td>
+            <td>
+              <S.TextBox>
+                {events.slice(0, 3).map((event) => {
+                  return <span key={event}>{event}</span>
+                })}
+              </S.TextBox>
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </S.Table>
   )
 }
