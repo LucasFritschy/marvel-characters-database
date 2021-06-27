@@ -1,6 +1,8 @@
 import * as S from './styles'
 import { PaginationItem } from '../PaginationItem'
 
+import { isMobile } from "react-device-detect";
+
 interface PaginationProps {
   currentPage: number
   totalItems: number
@@ -10,8 +12,6 @@ interface PaginationProps {
 export function Pagination({ currentPage, totalItems, onPageChange }: PaginationProps) {
 
   const totalPages = Math.ceil(totalItems / 4)
-
-  console.log(currentPage, totalPages)
 
   function generatePagesArray(from: number, to: number) {
     return [...new Array(Math.abs(to - from) + 1)]

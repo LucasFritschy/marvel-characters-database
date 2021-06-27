@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
   width: 18.5rem;
   padding: 0.5rem 1rem;
   background: var(--white);
@@ -16,7 +17,11 @@ align-items: center;
 
     ::-webkit-input-placeholder {
       font-style: italic;
-      color: var(--text-body);
+      color: var(--text-search);
 }
+  }
+
+  @media(max-width: 800px) {
+    width: 100%;
   }
 `

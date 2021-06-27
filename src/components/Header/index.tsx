@@ -5,7 +5,10 @@ export function Header() {
     <S.Container>
       <h1>Objective</h1>
       <S.User>
-        <p><strong>Lucas Fritschy</strong> Teste de Front-end</p>
+        <div>
+          <span><strong>Lucas Fritschy</strong></span>
+          <span>Teste de Front-end</span>
+        </div>
         <div>LF</div>
       </S.User>
     </S.Container>

@@ -20,7 +20,7 @@ export const User = styled.div`
     margin: 1rem;
   }
 
-  > div {
+  div + div {
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -28,5 +28,18 @@ export const User = styled.div`
     justify-content: center;
     border-radius: 4px;
     background: var(--background);
+  }
+
+  @media(max-width: 800px) {
+    div:first-of-type {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div + div {
+      margin-left: 10px;
+    }
   }
 `

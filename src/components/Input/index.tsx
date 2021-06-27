@@ -10,7 +10,9 @@ export function Input({ icon: Icon, ...rest }: InputProps) {
   return (
     <S.Container>
       <input {...rest} />
-      {Icon && <Icon size={18} />}
+      <button>
+        {Icon && <Icon size={18} />}
+      </button>
     </S.Container>
   )
 }

@@ -1,16 +1,14 @@
 import styled from 'styled-components'
 
-export const Container = styled.footer`
-
+export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
+  margin: 0 7.125rem;
   height: 100%;
   max-width: 1480px;
   padding-top: 2.5rem;
-  margin: 0 auto;
   background: var(--background);
 
   h1 {
@@ -23,5 +21,18 @@ export const Container = styled.footer`
     font-size: 1rem;
     color: var(--text-title);
     margin-bottom: 0.5rem;
+  }
+
+  @media(max-width: 800px) {
+    align-items: center;
+    margin: 0 24pt;
+
+    h1 {
+      font-size: 24pt;
+    }
+
+    h2 {
+      font-size: 14pt;
+    }
   }
 `
