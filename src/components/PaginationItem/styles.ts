@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 type ContainerProps = {
-  isActive: boolean
+  isCurrent: boolean
 }
 
 export const Container = styled.button<ContainerProps>`
@@ -14,6 +14,6 @@ export const Container = styled.button<ContainerProps>`
   height: 2rem;
   border-radius: 4px;
   border: 1px solid var(--dark-snow);
-  background: ${props => props.isActive ? 'var(--dark-blue)' : 'var(--snow)'};
-  color: ${props => props.isActive ? 'var(--white)' : 'var(--dark-smoke)'};
+  background: ${props => props.isCurrent ? 'var(--dark-blue)' : 'var(--snow)'};
+  color: ${props => props.isCurrent ? 'var(--white)' : 'var(--dark-smoke)'};
 `

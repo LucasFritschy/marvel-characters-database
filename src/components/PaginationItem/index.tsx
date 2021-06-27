@@ -1,14 +1,15 @@
 import * as S from './styles'
 
 interface PaginationItemProps {
-  value: number
-  active?: boolean
+  number: number
+  onPageChange: (page: number) => void
+  isCurrent?: boolean
 }
 
-export function PaginationItem({ value, active = false }: PaginationItemProps) {
+export function PaginationItem({ number, isCurrent = false, onPageChange }: PaginationItemProps) {
   return (
-    <S.Container isActive={active}>
-      {value}
+    <S.Container isCurrent={isCurrent} onClick={() => onPageChange(number)}>
+      {number}
     </S.Container>
   )
 }
