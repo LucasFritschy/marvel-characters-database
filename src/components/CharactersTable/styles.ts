@@ -33,6 +33,10 @@ export const Table = styled.table`
     td:last-child {
       border-radius: 0 4px 4px 0;
     }
+
+    &:hover {
+      cursor: pointer
+    }
   }
 
   tbody {
@@ -41,6 +45,10 @@ export const Table = styled.table`
       height: 5.5rem;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   @media(max-width: 800px) {

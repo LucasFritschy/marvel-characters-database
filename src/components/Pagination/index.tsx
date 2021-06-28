@@ -43,7 +43,7 @@ export function Pagination({ currentPage, totalItems, onPageChange }: Pagination
         currentPage === totalPages - 1 ?
           generatePagesArray(currentPage + 1, currentPage + 1)
           :
-          isMobile ? generatePagesArray(currentPage + 1, currentPage + 2) : generatePagesArray(currentPage + 1, currentPage + 2)
+          isMobile ? generatePagesArray(currentPage + 1, currentPage + 1) : generatePagesArray(currentPage + 1, currentPage + 2)
 
   return (
     <S.Container>

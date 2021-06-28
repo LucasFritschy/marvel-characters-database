@@ -14,6 +14,11 @@ export const Container = styled.button<ContainerProps>`
   height: 2rem;
   border-radius: 4px;
   border: 1px solid var(--dark-snow);
+  cursor: ${props => props.isCurrent && 'auto'};
   background: ${props => props.isCurrent ? 'var(--dark-blue)' : 'var(--snow)'};
   color: ${props => props.isCurrent ? 'var(--white)' : 'var(--dark-smoke)'};
+
+  &:hover {
+    background: ${props => props.isCurrent ? 'var(--dark-blue)' : 'var(--light-blue)'};
+    color: ${props => props.isCurrent ? 'var(--white)' : 'var(--white)'};  }
 `

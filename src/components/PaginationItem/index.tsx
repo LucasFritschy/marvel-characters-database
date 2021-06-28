@@ -8,7 +8,7 @@ interface PaginationItemProps {
 
 export function PaginationItem({ number, isCurrent = false, onPageChange }: PaginationItemProps) {
   return (
-    <S.Container isCurrent={isCurrent} onClick={() => onPageChange(number)}>
+    <S.Container disabled={isCurrent} isCurrent={isCurrent} onClick={() => onPageChange(number)}>
       {number}
     </S.Container>
   )

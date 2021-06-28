@@ -2,12 +2,16 @@ import * as S from './styles'
 import { CharacterListFormatted } from '../../utils/heroListFormatter'
 
 import { isMobile } from "react-device-detect";
+import { useHistory } from "react-router-dom";
 
 interface CharactersTableProps {
   list: CharacterListFormatted[]
 }
 
 export function CharactersTable({ list }: CharactersTableProps) {
+
+  let history = useHistory()
+
   return (
     <S.Table>
       <thead>
@@ -28,7 +32,7 @@ export function CharactersTable({ list }: CharactersTableProps) {
       </thead>
       <tbody>
         {list.map(({ id, name, series, events, thumbnail }) => (
-          <tr key={id}>
+          <tr onClick={() => history.push(`/character/id=${id}`)}>
             <td>
               <S.CharBox>
                 <img src={thumbnail} alt={name} />

@@ -13,3 +13,11 @@ export async function getCharactersByName(offset: number, search: string) {
   const jsonParsed = await response.json();
   return jsonParsed;
 }
+
+export async function getCharacterById(id: number) {
+  const response = await fetch(
+    `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
+  );
+  const jsonParsed = await response.json();
+  return jsonParsed;
+}

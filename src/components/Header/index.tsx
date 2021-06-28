@@ -9,7 +9,7 @@ export function Header() {
           <span><strong>Lucas Fritschy</strong></span>
           <span>Teste de Front-end</span>
         </div>
-        <div>LF</div>
+        <div><strong>LF</strong></div>
       </S.User>
     </S.Container>
   )

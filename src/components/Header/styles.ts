@@ -50,7 +50,7 @@ export const User = styled.div`
     }
 
     div + div {
-      margin-left: 10px;
+      margin-left: 2.5px;
     }
   }
 `
