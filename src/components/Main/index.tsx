@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Input } from '../Input'
 import { CharactersTable } from '../CharactersTable'
 import { Pagination } from '../Pagination'
+import { CharacterNotFoundCard } from '../CharacterNotFoundCard'
 
 import { CharacterListFormatted, heroListFormatter } from '../../utils/heroListFormatter'
 import { getAllCharacters, getCharactersByName } from '../../services/api'
@@ -56,9 +57,14 @@ export function Main() {
           onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
           onSearch={handleSearchButton}
         />
-        <CharactersTable list={characterList} />
+        {characterList.length > 0
+          ?
+          <CharactersTable list={characterList} />
+          :
+          <CharacterNotFoundCard />
+        }
       </div>
-      <Pagination onPageChange={handlePageButton} currentPage={page} totalItems={totalItems} />
+      {characterList.length > 0 && <Pagination onPageChange={handlePageButton} currentPage={page} totalItems={totalItems} />}
     </S.Container>
   )
 }
