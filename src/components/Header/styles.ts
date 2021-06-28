@@ -42,6 +42,7 @@ export const User = styled.div`
   }
 
   @media(max-width: 800px) {
+
     div:first-of-type {
       display: flex;
       flex-direction: column;

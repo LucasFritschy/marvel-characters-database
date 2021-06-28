@@ -47,15 +47,17 @@ export function Main() {
 
   return (
     <S.Container>
-      <h1>Busca de personagens</h1>
-      <h2>Nome do personagem</h2>
-      <Input
-        placeholder="Search"
-        icon={AiOutlineSearch}
-        onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
-        onSearch={handleSearchButton}
-      />
-      <CharactersTable list={characterList} />
+      <div>
+        <h1>Busca de personagens</h1>
+        <h2>Nome do personagem</h2>
+        <Input
+          placeholder="Search"
+          icon={AiOutlineSearch}
+          onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
+          onSearch={handleSearchButton}
+        />
+        <CharactersTable list={characterList} />
+      </div>
       <Pagination onPageChange={handlePageButton} currentPage={page} totalItems={totalItems} />
     </S.Container>
   )

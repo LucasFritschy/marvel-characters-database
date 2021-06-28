@@ -32,7 +32,7 @@ export function CharactersTable({ list }: CharactersTableProps) {
       </thead>
       <tbody>
         {list.map(({ id, name, series, events, thumbnail }) => (
-          <tr onClick={() => history.push(`/character/id=${id}`)}>
+          <tr key={id} onClick={() => history.push(`/character/id=${id}`)}>
             <td>
               <S.CharBox>
                 <img src={thumbnail} alt={name} />
@@ -47,15 +47,15 @@ export function CharactersTable({ list }: CharactersTableProps) {
               <>
                 <td>
                   <S.TextBox>
-                    {series.map((serie) => {
-                      return <span key={serie}>{serie}</span>
+                    {series.map((serie, index) => {
+                      return <span key={index}>{serie}</span>
                     })}
                   </S.TextBox>
                 </td>
                 <td>
                   <S.TextBox>
-                    {events.map((event) => {
-                      return <span key={event}>{event}</span>
+                    {events.map((event, index) => {
+                      return <span key={index}>{event}</span>
                     })}
                   </S.TextBox>
                 </td>

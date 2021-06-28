@@ -5,12 +5,9 @@ export const Container = styled.footer`
   align-items: center;
   justify-content: center;
   font-family: 'PT Sans', sans-serif;
-  justify-self: flex-end;
-  margin-bottom: auto;
   width: 100%;
   height: 5.625rem;
   background: var(--white);
-  margin: 0;
 `
 
 export const DirButton = styled.button`

@@ -25,26 +25,29 @@ export function CharacterDetail() {
     fetchData()
   }, [charId])
 
-  console.log(charInfo)
-
   return (
     <S.Container>
-      {charInfo?.map(({ id, name, description, desktopThumbnail, detailsLink, mobileThumbnail }: CharacterInfoFormatted) => (
-        <>
-          <S.CharProfile key={id}>
-            <h1>{name}</h1>
-            <img src={isMobile ? mobileThumbnail : desktopThumbnail} alt={name} />
-          </S.CharProfile>
-          <S.CharDescription>
-            <h3>Description</h3>
-            <span>
-              {description ? description : 'Description not available.'}
-            </span>
-            {detailsLink && <a href={detailsLink} target="_blank" rel='noreferrer'>More Information</a>}
-          </S.CharDescription>
-        </>
-      ))}
-      <AiOutlineArrowLeft size={24} onClick={() => history.push('/')} />
+      <div>
+        {charInfo?.map(({ id, name, description, desktopThumbnail, detailsLink, mobileThumbnail }: CharacterInfoFormatted) => (
+          <>
+            <S.CharProfile key={id}>
+              <h1>{name}</h1>
+              <img src={isMobile ? mobileThumbnail : desktopThumbnail} alt={name} />
+            </S.CharProfile>
+            <S.CharDescription>
+              <h3>Description</h3>
+              <span>
+                {description ? description : 'Description not available.'}
+              </span>
+              {detailsLink && <a href={detailsLink} target="_blank" rel='noreferrer'>More Information</a>}
+            </S.CharDescription>
+          </>
+        ))}
+      </div>
+      <S.IconContainer onClick={() => history.push('/')}>
+        <AiOutlineArrowLeft size={24} />
+        <span>Back to main page</span>
+      </S.IconContainer>
     </S.Container>
   )
 }

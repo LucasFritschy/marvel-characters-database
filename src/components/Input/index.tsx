@@ -8,12 +8,21 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export function Input({ icon: Icon, onSearch, ...rest }: InputProps) {
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    onSearch();
+  }
+
   return (
     <S.Container >
-      <input {...rest} />
-      <button onClick={() => onSearch()}>
-        {Icon && <Icon size={18} />}
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input {...rest} />
+        <button type="submit">
+          {Icon && <Icon size={18} />}
+        </button>
+      </form>
+
     </S.Container>
   )
 }
