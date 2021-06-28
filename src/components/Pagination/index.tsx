@@ -1,7 +1,6 @@
 import * as S from './styles'
-import { PaginationItem } from '../PaginationItem'
-
 import { isMobile } from "react-device-detect";
+import { PaginationItem } from '../PaginationItem'
 
 interface PaginationProps {
   currentPage: number
@@ -25,26 +24,26 @@ export function Pagination({ currentPage, totalItems, onPageChange }: Pagination
     []
     :
     currentPage === totalPages - 1 ?
-      generatePagesArray(currentPage - 3, currentPage - 1)
+      isMobile ? generatePagesArray(currentPage - 1, currentPage - 1) : generatePagesArray(currentPage - 3, currentPage - 1)
       :
       currentPage === totalPages ?
-        generatePagesArray(currentPage - 4, currentPage - 1)
+        isMobile ? generatePagesArray(currentPage - 2, currentPage - 1) : generatePagesArray(currentPage - 4, currentPage - 1)
         :
-        generatePagesArray(currentPage - 2, currentPage - 3)
+        isMobile ? generatePagesArray(currentPage - 1, currentPage - 1) : generatePagesArray(currentPage - 2, currentPage - 3)
 
 
   const nextPages = currentPage >= totalPages ?
     []
     :
     currentPage === 1 ?
-      generatePagesArray(currentPage + 1, currentPage + 4)
+      isMobile ? generatePagesArray(currentPage + 1, currentPage + 2) : generatePagesArray(currentPage + 1, Math.min(5, totalPages))
       : currentPage === 2 ?
-        generatePagesArray(currentPage + 1, currentPage + 3)
+        isMobile ? generatePagesArray(currentPage + 1, currentPage + 1) : generatePagesArray(currentPage + 1, Math.min(5, totalPages))
         :
         currentPage === totalPages - 1 ?
           generatePagesArray(currentPage + 1, currentPage + 1)
           :
-          generatePagesArray(currentPage + 1, currentPage + 2)
+          isMobile ? generatePagesArray(currentPage + 1, currentPage + 2) : generatePagesArray(currentPage + 1, currentPage + 2)
 
   return (
     <S.Container>

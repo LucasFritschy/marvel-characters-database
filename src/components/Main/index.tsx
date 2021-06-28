@@ -7,7 +7,6 @@ import { CharacterListFormatted, heroListFormatter } from '../../utils/heroListF
 import { getAllCharacters, getCharactersByName } from '../../services/api'
 
 import { AiOutlineSearch } from 'react-icons/ai'
-import { isMobile } from "react-device-detect";
 
 import * as S from './styles'
 
@@ -28,51 +27,36 @@ export function Main() {
     fetchData()
   }, [])
 
-  useEffect(() => {
-    async function fetchData() {
-      const offset = (page - 1) * 4
-      search !== '' ?
-        offset === 0 ?
-          fetch(
-            `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${search}&limit=4&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
-          ).then((response) => {
-            return response.json();
-          }).then((jsonParsed) => {
-            setCharacterList(heroListFormatter(jsonParsed.data.results))
-          })
-          :
-          getCharactersByName(offset, search).then((jsonParsed) => {
-            setTotalItems(jsonParsed.data.total)
-            setCharacterList(heroListFormatter(jsonParsed.data.results));
-          })
-        :
-        offset === 0 ?
-          fetch(
-            `https://gateway.marvel.com:443/v1/public/characters?limit=4&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
-          ).then((response) => {
-            return response.json();
-          }).then((jsonParsed) => {
-            setCharacterList(heroListFormatter(jsonParsed.data.results))
-          })
-          :
-          fetch(
-            `https://gateway.marvel.com:443/v1/public/characters?limit=4&offset=${offset}&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
-          ).then((response) => {
-            return response.json();
-          }).then((jsonParsed) => {
-            setCharacterList(heroListFormatter(jsonParsed.data.results))
-          })
-    }
-    fetchData()
-  }, [page, search])
+  function handlePageButton(page: number) {
+    const offset = (page - 1) * 4
+    getCharactersByName(offset, search).then((jsonParsed) => {
+      setTotalItems(jsonParsed.data.total)
+      setCharacterList(heroListFormatter(jsonParsed.data.results));
+    })
+    setPage(page)
+  }
+
+  function handleSearchButton() {
+    const offset = (page - 1) * 4
+    getCharactersByName(offset, search).then((jsonParsed) => {
+      setTotalItems(jsonParsed.data.total)
+      setCharacterList(heroListFormatter(jsonParsed.data.results));
+    })
+    setPage(1)
+  }
 
   return (
     <S.Container>
       <h1>Busca de personagens</h1>
       <h2>Nome do personagem</h2>
-      <Input placeholder="Search" icon={AiOutlineSearch} onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)} />
+      <Input
+        placeholder="Search"
+        icon={AiOutlineSearch}
+        onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
+        onSearch={handleSearchButton}
+      />
       <CharactersTable list={characterList} />
-      <Pagination onPageChange={setPage} currentPage={page} totalItems={totalItems} />
+      <Pagination onPageChange={handlePageButton} currentPage={page} totalItems={totalItems} />
     </S.Container>
   )
 }

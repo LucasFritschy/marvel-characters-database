@@ -20,6 +20,17 @@ export const User = styled.div`
     margin: 1rem;
   }
 
+  div:first-of-type {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      span + span {
+        margin: 0 10px;
+      }
+    }
+
   div + div {
     width: 2rem;
     height: 2rem;

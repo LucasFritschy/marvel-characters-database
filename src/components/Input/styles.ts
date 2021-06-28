@@ -9,8 +9,16 @@ export const Container = styled.div`
   padding: 0.5rem 1rem;
   background: var(--white);
   color: var(--text-search);
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent;
+    }
 
   input{
+    flex: 1;
     background: transparent;
     border: 0;
     outline: none;

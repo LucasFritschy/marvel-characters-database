@@ -43,14 +43,14 @@ export function CharactersTable({ list }: CharactersTableProps) {
               <>
                 <td>
                   <S.TextBox>
-                    {series.slice(0, 3).map((serie) => {
+                    {series.map((serie) => {
                       return <span key={serie}>{serie}</span>
                     })}
                   </S.TextBox>
                 </td>
                 <td>
                   <S.TextBox>
-                    {events.slice(0, 3).map((event) => {
+                    {events.map((event) => {
                       return <span key={event}>{event}</span>
                     })}
                   </S.TextBox>

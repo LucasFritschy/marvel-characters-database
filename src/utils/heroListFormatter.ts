@@ -31,8 +31,8 @@ export function heroListFormatter(data: CharacterListData[]): CharacterListForma
       {
         id: item.id,
         name: item.name,
-        series: item.series.items.map(serie => serie.name),
-        events: item.events.items.map(event => event.name),
+        series: item.series.items.map(serie => serie.name).slice(0, 3),
+        events: item.events.items.map(event => event.name).slice(0, 3),
         thumbnail: `${item.thumbnail.path}/portrait_small.${item.thumbnail.extension}`
       }
     )

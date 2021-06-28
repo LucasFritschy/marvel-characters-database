@@ -10,7 +10,6 @@ export const Table = styled.table`
     text-align: left;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     font-size: 0.875rem;
-    border-radius: 4px;
   }
 
   tr {
@@ -20,10 +19,19 @@ export const Table = styled.table`
       color: var(--text-search);
       font-size: 0.75rem;
       font-weight: 500;
+
     }
 
     th:first-child {
       padding-left: 1.5rem;
+    }
+
+    td:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    td:last-child {
+      border-radius: 0 4px 4px 0;
     }
   }
 
@@ -32,6 +40,7 @@ export const Table = styled.table`
       box-shadow: 0px 0px 5px #00000033;
       height: 5.5rem;
     }
+
   }
 
   @media(max-width: 800px) {

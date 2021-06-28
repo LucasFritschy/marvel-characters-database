@@ -4,13 +4,14 @@ import * as S from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ComponentType<IconBaseProps>
+  onSearch: () => void
 }
 
-export function Input({ icon: Icon, ...rest }: InputProps) {
+export function Input({ icon: Icon, onSearch, ...rest }: InputProps) {
   return (
-    <S.Container>
+    <S.Container >
       <input {...rest} />
-      <button>
+      <button onClick={() => onSearch()}>
         {Icon && <Icon size={18} />}
       </button>
     </S.Container>
