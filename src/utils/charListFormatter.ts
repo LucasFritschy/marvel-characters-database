@@ -25,7 +25,7 @@ export interface CharacterListFormatted {
   thumbnail: string
 }
 
-export function heroListFormatter(data: CharacterListData[]): CharacterListFormatted[] {
+export function charListFormatter(data: CharacterListData[]): CharacterListFormatted[] {
   return data.map(item => {
     return (
       {

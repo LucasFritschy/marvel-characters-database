@@ -21,7 +21,7 @@ export interface CharacterInfoFormatted {
   detailsLink?: string
 }
 
-export function heroInfoFormatter(data: CharacterData[]): CharacterInfoFormatted[] {
+export function charInfoFormatter(data: CharacterData[]): CharacterInfoFormatted[] {
   return data.map((item: CharacterData) => {
     return (
       {

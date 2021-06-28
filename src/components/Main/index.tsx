@@ -4,7 +4,7 @@ import { CharactersTable } from '../CharactersTable'
 import { Pagination } from '../Pagination'
 import { CharacterNotFoundCard } from '../CharacterNotFoundCard'
 
-import { CharacterListFormatted, heroListFormatter } from '../../utils/heroListFormatter'
+import { CharacterListFormatted, charListFormatter } from '../../utils/charListFormatter'
 import { getAllCharacters, getCharactersByName } from '../../services/api'
 
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -22,7 +22,7 @@ export function Main() {
     async function fetchData() {
       getAllCharacters().then((jsonParsed) => {
         setTotalItems(jsonParsed.data.total)
-        setCharacterList(heroListFormatter(jsonParsed.data.results))
+        setCharacterList(charListFormatter(jsonParsed.data.results))
       })
     }
     fetchData()
@@ -32,7 +32,7 @@ export function Main() {
     const offset = (page - 1) * 4
     getCharactersByName(offset, search).then((jsonParsed) => {
       setTotalItems(jsonParsed.data.total)
-      setCharacterList(heroListFormatter(jsonParsed.data.results));
+      setCharacterList(charListFormatter(jsonParsed.data.results));
     })
     setPage(page)
   }
@@ -41,7 +41,7 @@ export function Main() {
     const offset = (page - 1) * 4
     getCharactersByName(offset, search).then((jsonParsed) => {
       setTotalItems(jsonParsed.data.total)
-      setCharacterList(heroListFormatter(jsonParsed.data.results));
+      setCharacterList(charListFormatter(jsonParsed.data.results));
     })
     setPage(1)
   }

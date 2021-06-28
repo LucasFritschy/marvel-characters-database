@@ -1,5 +1,5 @@
 import * as S from './styles'
-import { CharacterListFormatted } from '../../utils/heroListFormatter'
+import { CharacterListFormatted } from '../../utils/charListFormatter'
 
 import { isMobile } from "react-device-detect";
 import { useHistory } from "react-router-dom";

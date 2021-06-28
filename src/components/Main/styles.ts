@@ -1,14 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   > div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin: 0 7.125rem;
     height: 100%;
     max-width: 1480px;
+    width: 100%;
     padding-top: 2.5rem;
     background: var(--background);
   }
@@ -30,6 +35,9 @@ export const Container = styled.main`
   }
 
   @media(max-width: 800px) {
+
+  margin: 0 2rem;
+
     > div {
       align-items: center;
       margin: 0 24pt;

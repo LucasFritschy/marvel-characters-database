@@ -3,8 +3,8 @@ import { useHistory, useParams } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 import { isMobile } from "react-device-detect";
-import { CharacterInfoFormatted } from '../../utils/heroInfoFormatter'
-import { heroInfoFormatter } from '../../utils/heroInfoFormatter'
+import { CharacterInfoFormatted } from '../../utils/charInfoFormatter'
+import { charInfoFormatter } from '../../utils/charInfoFormatter'
 import { getCharacterById } from '../../services/api'
 import * as S from './styles'
 
@@ -19,7 +19,7 @@ export function CharacterDetail() {
   useEffect(() => {
     async function fetchData() {
       getCharacterById(charId).then((jsonParsed) => {
-        setCharInfo(heroInfoFormatter(jsonParsed.data.results))
+        setCharInfo(charInfoFormatter(jsonParsed.data.results))
       })
     }
     fetchData()
