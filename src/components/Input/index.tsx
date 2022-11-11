@@ -1,9 +1,9 @@
 import { InputHTMLAttributes } from 'react'
-import { IconBaseProps } from 'react-icons'
+import { IconType } from 'react-icons'
 import * as S from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ComponentType<IconBaseProps>
+  icon?: IconType
   onSearch: () => void
 }
 
